@@ -1,0 +1,24 @@
+# used for running pytest tests
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install python env
+        uses: ./.github/actions/install-python-env
+      - name: Install node env
+        uses: ./.github/actions/install-node-env
+      - name: Build jupyter-book content
+        run: |
+          poetry run jupyter-book build src/book
+      - name: Run pa11y
+        run: |
+          ls src/book/_build/html/*.html | xargs -I {} npx pa11y {}

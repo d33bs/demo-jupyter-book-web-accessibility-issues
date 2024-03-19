@@ -18,7 +18,7 @@ jobs:
         uses: ./.github/actions/install-node-env
       - name: Build jupyter-book content
         run: |
-          jupyter-book build
+          poetry run jupyter-book build
       - name: Run pa11y
         run: |
           ls src/book/_build/html/*.html | xargs -I {} npx pa11y {}

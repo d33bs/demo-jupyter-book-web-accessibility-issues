@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "demo-jupyter-book-web-accessibility-issues"
+version = "0.0.1"
+description = "Demonstrating jupyter-book web accessibility issues"
+authors = ["d33bs"]
+license = "BSD-3-Clause"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+jupyter-book = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.setuptools_scm]
+root = "."
